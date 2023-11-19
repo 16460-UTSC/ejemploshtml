@@ -1,0 +1,22 @@
+name: Mi Flujo de Trabajo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: Windows 11 Home
+
+    steps:
+    - name: Checkout del código
+      uses: actions/checkout@v2
+
+    - name: Configuración del entorno
+      run: |
+        npm install
+        npm run build
+
+    - name: Ejecutar pruebas
+      run: npm test
